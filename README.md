@@ -18,7 +18,7 @@ Welcome to the Student Profile Management System built with Laravel! This reposi
 - A local development environment such as Laravel Valet, Homestead, XAMPP, or WAMP.
 
 ### Installation
-1. Clone this repository: `git clone https://github.com/your-username/your-repo.git`
+1. Clone this repository: `git clone https://github.com/surulirajan-mca/student-profile-management-system-using-laravel.git`
 2. Navigate into the project directory: `cd your-repo`
 3. Install PHP dependencies: `composer install`
 4. Copy `.env.example` to `.env` and configure your database.
@@ -35,5 +35,3 @@ Welcome to the Student Profile Management System built with Laravel! This reposi
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
 
-## License
-This project is licensed under the [MIT License](LICENSE).
