@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* Student Routes Starts */
+Route::get('create-student',[studentcontroller::class, 'createStudent'])->name('create-student');
+Route::post('create-student',[studentcontroller::class, 'StoreStudentDetails']);
+Route::get('student-list',[studentcontroller::class, 'studentList'])->name('student-list');
+Route::get('edit-student/{student_id}',[studentcontroller::class, 'editStudent'])->name('edit-student');
+Route::post('edit-student/{student_id}',[studentcontroller::class, 'UpdateStudentDetails'])->name('edit-student');
+Route::get('delete-student/{student_id}',[studentcontroller::class, 'deleteStudent'])->name('delete-student');
+/* Student Routes Ends */
