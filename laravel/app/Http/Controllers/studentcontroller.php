@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class studentcontroller extends Controller
 {
@@ -13,7 +14,7 @@ class studentcontroller extends Controller
             'submit' => __('studentnew.student_create_title'),
             'action' => url('create-student')
         ];
-        return view('studentnew.student-form', ['datas' => $datas]);
+        return view('student-form', ['datas' => $datas]);
     }
 
     public function StoreStudentDetails(Request $request) {
@@ -31,7 +32,47 @@ class studentcontroller extends Controller
             'success_description' => __('studentnew.registration_success_text')
        ];
         
-        return view('studentnew.success',compact('datas'));
+        return view('success',compact('datas'));
+    }
+
+    public function UpdateStudentDetails(Request $request, $student_id) {
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $age = $request->input('age');
+        $mobile = $request->input('mobile');
+        $department = $request->input('department');
+
+        //Updating the Column values in the studentnew table
+        DB::update('UPDATE `studentnew` SET `name`=?, email=?, age=?, mobile=?,department=? WHERE student_id=?',[$name, $email, $age, $mobile, $department, $student_id]);
+        
+        $datas = [
+            'success_title'       => __('studentnew.update_success'),
+            'success_description' => __('studentnew.update_success_text')
+        ];
+
+        return view('success',compact('datas'));
+    }
+
+    public function editStudent($student_id) {
+        $studentDetails = DB::select('SELECT * FROM studentnew WHERE student_id=? lIMIT 0,1',[$student_id]);
+        //dd($studentDetails);
+        $datas = [
+            'title' => __('studentnew.student_edit_title'),
+            'heading' => __('studentnew.student_edit_heading'),
+            'submit' => __('studentnew.student_edit_details'),
+            'action' => route('edit-student', ['student_id' => $student_id]),
+            'studentdetails' => $studentDetails[0]
+        ];
+        return view('student-form', compact('datas'));
+    }
+
+    public function deleteStudent($student_id) {
+        DB::delete('DELETE from `studentnew` WHERE student_id=?', [$student_id]);
+        $datas = [
+            'success_title'       => __('studentnew.delete_success'),
+            'success_description' => __('studentnew.delete_success_text')
+        ];
+        return view('success',compact('datas'));
     }
 
     public function studentList() {
@@ -41,6 +82,6 @@ class studentcontroller extends Controller
             'heading' => __('studentnew.student_list_heading'),
             'students' => $students
         ];
-        return view('studentnew.student-list', compact('datas'));
+        return view('student-list', compact('datas'));
     }
 }

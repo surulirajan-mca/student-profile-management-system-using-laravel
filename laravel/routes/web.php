@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\studentcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,7 @@ Route::get('edit-student/{student_id}',[studentcontroller::class, 'editStudent']
 Route::post('edit-student/{student_id}',[studentcontroller::class, 'UpdateStudentDetails'])->name('edit-student');
 Route::get('delete-student/{student_id}',[studentcontroller::class, 'deleteStudent'])->name('delete-student');
 /* Student Routes Ends */
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

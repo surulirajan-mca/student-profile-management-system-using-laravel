@@ -1,4 +1,4 @@
-@extends('studentnew.layouts.student-layout')
+@extends('layouts.student-layout')
 @section('title', $datas['success_title'])
 @section('main-content')
   <main class="container mt-4">
