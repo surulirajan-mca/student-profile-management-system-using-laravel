@@ -14,9 +14,7 @@ use App\Http\Controllers\studentcontroller;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [studentcontroller::class,'studentList']);
 
 /* Student Routes Starts */
 Route::get('create-student',[studentcontroller::class, 'createStudent'])->name('create-student');
@@ -27,6 +25,6 @@ Route::post('edit-student/{student_id}',[studentcontroller::class, 'UpdateStuden
 Route::get('delete-student/{student_id}',[studentcontroller::class, 'deleteStudent'])->name('delete-student');
 /* Student Routes Ends */
 
-Auth::routes();
+/*Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
