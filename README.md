@@ -32,6 +32,9 @@ Welcome to the Student Profile Management System built with Laravel! This reposi
 3. **Delete a Student**: Remove unwanted student profiles using the delete functionality.
 4. **List of Students**: View all students currently stored in the database.
 
+## Database
+A complete database has been added in the database/schema folder.
+
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
 
