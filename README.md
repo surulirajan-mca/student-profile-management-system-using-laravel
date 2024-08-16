@@ -35,6 +35,25 @@ Welcome to the Student Profile Management System built with Laravel! This reposi
 ## Database
 A complete database has been added in the database/schema folder. Both Database schema and table datas also added.
 
+## .gitignore file
+In this project, some files haven't been uploaded. pls check below files which was not uploaded.
+
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode
+
 ## Contributing
 Contributions are welcome! Please feel free to submit a pull request or open an issue for any bugs or feature requests.
 
