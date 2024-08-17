@@ -13,34 +13,49 @@
                 <div class="form-group mt-3">
                   <label for="name" class="mb-1 mx-1">{{ __('studentnew.text_name') }}</label>
                   @isset($datas['studentdetails'])
-                    <input type="text" name="name" id="name" value="{{ $datas['studentdetails']->name }}" class="form-control" placeholder="Enter Your Name" required autofocus >
+                    <input type="text" name="name" id="name" value="{{ $datas['studentdetails']->name }}" class="form-control" placeholder="Enter Your Name"  autofocus >
                   @else
-                    <input type="text" name="name" id="name" value="" class="form-control" placeholder="Enter Your Name" required autofocus >
+                    <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control" placeholder="Enter Your Name"  autofocus >
                   @endisset
+                  @error('name')
+                    <div class="container mt-1">
+                      <p class="text-danger">{{ $message }}</p>
+                    </div>
+                  @enderror                  
                 </div>
                 <div class="form-group mt-3">
                   <label for="email" class="mb-1 mx-1">{{ __('studentnew.text_email') }}</label>
                   @isset($datas['studentdetails']->email)
-                    <input type="email" name="email" id="email" value="{{ $datas['studentdetails']->email }}" class="form-control" placeholder="Enter Your Email Address" required> 
+                    <input type="email" name="email" id="email" value="{{ $datas['studentdetails']->email }}" class="form-control" placeholder="Enter Your Email Address" > 
                   @else
-                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter Your Email Address" required> 
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter Your Email Address" value="{{ old('email') }}" > 
                   @endisset
+                  @error('email')
+                    <div class="container mt-1">
+                      <p class="text-danger">{{ $message }}</p>
+                    </div>
+                  @enderror
                 </div>
                 <div class="form-group mt-3">
                   <label for="age" class="mb-1 mx-1">{{ __('studentnew.text_age') }}</label>
                   @isset($datas['studentdetails']->age)
                     <input type="number" name="age" id="age" value="{{ $datas['studentdetails']->age }}" class="form-control" placeholder="Enter Your Age">
                   @else
-                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter Your Age">
+                    <input type="number" name="age" id="age" class="form-control" placeholder="Enter Your Age" value="{{ old('age') }}">
                   @endisset                  
                 </div>
                 <div class="form-group mt-3">
                   <label for="mobile" class="mb-1 mx-1">{{ __('studentnew.text_mobile') }}</label>
                   @isset($datas['studentdetails']->mobile)
-                    <input type="number" name="mobile" id="mobile" value="{{ $datas['studentdetails']->mobile }}" class="form-control" placeholder="Enter Your Mobile No" required>
+                    <input type="number" name="mobile" id="mobile" value="{{ $datas['studentdetails']->mobile }}" class="form-control" placeholder="Enter Your Mobile No" >
                   @else
-                    <input type="number" name="mobile" id="mobile" class="form-control" placeholder="Enter Your Mobile No" required>
+                    <input type="number" name="mobile" id="mobile" class="form-control" placeholder="Enter Your Mobile No" value="{{ old('mobile') }}" >
                   @endisset
+                  @error('mobile')
+                    <div class="container mt-1">
+                      <p class="text-danger">{{ $message }}</p>
+                    </div>
+                  @enderror
                 </div>
                 <div class="form-group mt-3">
                   <label for="department" class="mb-1 mx-1">{{ __('studentnew.text_department') }}</label>

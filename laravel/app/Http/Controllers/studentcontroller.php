@@ -18,11 +18,26 @@ class studentcontroller extends Controller
     }
 
     public function StoreStudentDetails(Request $request) {
-       $name = $request->input('name');
-       $email = $request->input('email');
+
+        //Validation
+        $rules = [
+            'name' => 'required | string | max:50',
+            'email' => 'required | email | max:50',
+            'mobile' => [
+                'required',
+                'regex:/^\d{10}$/'
+            ],
+            'department' => 'required | string'
+       ];
+
+       $ValidatedDatas = $request->validate($rules);
+       //dd($ValidatedDatas);
+
+       $name = $ValidatedDatas['name'];
+       $email = $ValidatedDatas['email'];
        $age = $request->input('age');
-       $mobile = $request->input('mobile');
-       $department = $request->input('department');
+       $mobile = $ValidatedDatas['mobile'];
+       $department = $ValidatedDatas['department'];
 
        //Insert the values into the table
        DB::insert('INSERT INTO studentnew(name,email,mobile,age,department) values(?,?,?,?,?)',[$name, $email, $mobile, $age, $department]);
@@ -36,6 +51,20 @@ class studentcontroller extends Controller
     }
 
     public function UpdateStudentDetails(Request $request, $student_id) {
+
+        //Validation
+        $rules = [
+            'name' => 'required | string | max:50',
+            'email' => 'required | email | max:50',
+            'mobile' => [
+                'required',
+                'regex:/^\d{10}$/'
+            ],
+            'department' => 'required | string'
+        ];
+
+        $ValidatedDatas = $request->validate($rules);
+
         $name = $request->input('name');
         $email = $request->input('email');
         $age = $request->input('age');
