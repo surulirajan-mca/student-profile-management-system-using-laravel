@@ -65,11 +65,11 @@ class studentcontroller extends Controller
 
         $ValidatedDatas = $request->validate($rules);
 
-        $name = $request->input('name');
-        $email = $request->input('email');
+        $name = $ValidatedDatas['name'];
+        $email = $ValidatedDatas['email'];
         $age = $request->input('age');
-        $mobile = $request->input('mobile');
-        $department = $request->input('department');
+        $mobile = $ValidatedDatas['mobile'];
+        $department = $ValidatedDatas['department'];
 
         //Updating the Column values in the studentnew table
         DB::update('UPDATE `studentnew` SET `name`=?, email=?, age=?, mobile=?,department=? WHERE student_id=?',[$name, $email, $age, $mobile, $department, $student_id]);
