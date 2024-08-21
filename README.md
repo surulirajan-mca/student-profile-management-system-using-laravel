@@ -36,7 +36,7 @@ Welcome to the Student Profile Management System built with Laravel! This reposi
 A complete database has been added in the database/schema folder. Both Database schema and table datas also added.
 
 ## .gitignore file
-In this project, some files haven't been uploaded. pls check below files which was not uploaded.
+In this project, some files haven't been uploaded. pls check below files which was not uploaded. If you need below files, pls send a message.
 
 /node_modules
 /public/hot
