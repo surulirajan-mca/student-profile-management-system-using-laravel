@@ -67,7 +67,7 @@
                   </select>
                 </div>
                 <div class="form-group mt-3">
-                  <input type="submit" name="submit" id="submit" value="{{ $datas['submit'] }}" class="form-control btn btn-primary btn-block bg-success mt-2">                
+                  <input type="submit" name="submit" id="submit" value="{{ $datas['submit'] }}" class="form-control btn btn-primary btn-block bg-success mt-3">                
                 </div>
                 @csrf
               </form>
